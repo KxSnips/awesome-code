@@ -5,6 +5,7 @@ namespace NW\WebService\References\Operations\Notification;
 class DataAdapter
 {
     private $data;
+
     public static function build($data): DataAdapter
     {
         return new static($data);
@@ -35,6 +36,61 @@ class DataAdapter
     public function clientId(): ?int
     {
         return (int)$this->getFromData($this->data, 'clientId');
+    }
+
+    public function creatorId(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'creatorId');
+    }
+
+    public function expertId(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'expertId');
+    }
+
+    public function differences(): ?array
+    {
+        return $this->getFromData($this->data, 'differences');
+    }
+
+    public function differencesFrom(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'differences.from');
+    }
+
+    public function differencesTo(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'differences.to');
+    }
+
+    public function complaintId(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'complaintId');
+    }
+
+    public function complaintNumber(): ?string
+    {
+        return (string)$this->getFromData($this->data, 'complaintNumber');
+    }
+
+    public function consumptionId(): ?int
+    {
+        return (int)$this->getFromData($this->data, 'consumptionId');
+    }
+
+    public function consumptionNumber(): ?string
+    {
+        return (string)$this->getFromData($this->data, 'consumptionNumber');
+    }
+
+    public function agreementNumber(): ?string
+    {
+        return (string)$this->getFromData($this->data, 'agreementNumber');
+    }
+
+    public function date(): ?string
+    {
+        return (string)$this->getFromData($this->data, 'date');
     }
 
     /**
