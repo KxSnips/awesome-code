@@ -31,7 +31,6 @@ class TsReturnOperation extends ReferencesOperation
             return $result;
         }
 
-
         if (!$dataAdapter->notificationType()) {
             throw new \RuntimeException('Empty notificationType', 400);
         }
@@ -111,6 +110,7 @@ class TsReturnOperation extends ReferencesOperation
                     'message' => __('complaintEmployeeEmailBody', $templateData, $dataAdapter->resellerId()),
                 ];
             }
+            //TODO::Клиент сообщений нужно научить работать с массивом сообщений что бы не слать сообщения в цикле
             MessagesClient::sendMessage($messages, $dataAdapter->resellerId(), NotificationEvents::CHANGE_RETURN_STATUS);
             $result['notificationEmployeeByEmail'] = true;
         }
